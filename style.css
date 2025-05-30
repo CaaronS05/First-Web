@@ -1,0 +1,401 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ----- BACKGROUND COLOR ----- */
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(0deg, #2bd47d 0%, #357a8a 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.form-section {
+  text-align: center;
+  margin: 60px 0 40px 0;
+}
+
+.form-section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.form-section p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+/* ----- FORM KESEHATAN ----- */
+
+.form-container {
+  background: rgba(255, 255, 255, 0.25);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  color: #333;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+.form-group {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+/* ----- JENIS MAKANAN BUTTON ----- */
+
+.diet-options {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  padding: 0% 10%;
+}
+
+.diet-option {
+  position: relative;
+}
+
+.diet-option input[type="radio"] {
+  display: none;
+}
+
+.diet-option label {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border-width: 2px;
+  border-style: solid;
+  margin-bottom: 0;
+  background-color: #a0d2db;
+  border-color: #4c8b9a;
+  color: #726fad;
+}
+
+.diet-option label::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+  border: 2px solid #4e8a9a;
+  background-color: transparent;
+}
+
+.diet-option input[type="radio"]:checked + label {
+  background-color: #d9c8e3;
+  border-color: #8a66a0;
+  color: #67417e;
+}
+
+.diet-option input[type="radio"]:checked + label::before {
+  border-color: #000000;
+  background-color: #766382;
+  box-shadow: inset 0 0 0 3px rgb(255, 255, 255);
+}
+
+/* ----- JENIS MAKANAN BUTTON END ----- */
+
+.form-input,
+.textarea {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: inherit;
+  transition: border-color 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  background-color: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #333;
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-input::placeholder,
+.textarea::placeholder {
+  color: #555;
+  opacity: 0.9;
+}
+
+.form-input:focus,
+.textarea:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(74, 144, 164, 0.8);
+  box-shadow: 0 0 0 2px rgba(74, 144, 164, 0.25);
+}
+
+.dropdown-container {
+  position: relative;
+  transition: padding-bottom 0.3s ease-out;
+}
+
+.dropdown-header {
+  background-color: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #333;
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border-color 0.3s ease, background-color 0.3s ease; /* Menambahkan transisi background-color */
+}
+
+.dropdown-header:hover {
+  border-color: rgba(74, 144, 164, 0.8);
+  background-color: rgba(255, 255, 255, 0.55);
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
+.checkbox-item:hover {
+  background-color: rgba(74, 144, 164, 0.15);
+}
+
+.checkbox-item:last-child {
+  border-bottom: none;
+}
+
+.checkbox-item input[type="checkbox"] {
+  margin-right: 12px;
+  transform: scale(1.2);
+  accent-color: #4a90a4;
+}
+
+.checkbox-item label {
+  margin-bottom: 0;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #333;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #4a90a4, #357a8a);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 40px auto 0;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(74, 144, 164, 0.3);
+}
+
+.selected-count {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
+  transition: margin-top 0.3s ease-out;
+}
+
+/* ----- BUTTERFLY ----- */
+
+@property --progress {
+  initial-value: 0;
+  inherits: false;
+  syntax: "<number>";
+}
+
+@keyframes flutter {
+  from {
+    transform: rotateX(0);
+  }
+  to {
+    transform: rotateX(80deg);
+  }
+}
+
+.butterfly {
+  position: absolute;
+  width: 60px;
+  height: auto;
+  color: #daff6b;
+  filter: drop-shadow(0 0 10px rgba(238, 255, 105, 0.8))
+    drop-shadow(0 0 20px rgba(253, 255, 105, 0.6))
+    drop-shadow(0 0 30px rgba(253, 255, 105, 0.4));
+  animation: flutter 300ms alternate infinite ease-in-out;
+}
+
+path {
+  fill: rgb(230, 255, 105);
+}
+
+.butterfly__wing {
+  transform-origin: center center;
+  animation: flutter 300ms alternate infinite;
+}
+
+@keyframes progress {
+  from {
+    --progress: 0;
+  }
+  to {
+    --progress: 1;
+  }
+}
+
+.shape-container {
+  --PI: 3.1415926535;
+  --WAVE-COUNT: 2;
+  --TOTAL-ANGLE: calc(var(--WAVE-COUNT) * 2 * var(--PI));
+  --UNIT: 1vw;
+  --r: 5;
+  --CONTAINER-WIDTH: 100;
+
+  --x: calc(var(--progress) * var(--CONTAINER-WIDTH));
+  --ROTATION-PER-LENGTH-UNIT: calc(var(--TOTAL-ANGLE) / var(--CONTAINER-WIDTH));
+  --alpha-reference-angle: calc(
+    var(--ROTATION-PER-LENGTH-UNIT) * var(--x) * 1rad
+  );
+  --y: calc(-1 * var(--r) * sin(var(--alpha-reference-angle)));
+
+  --x-with-unit: calc(var(--x) * var(--UNIT));
+  --y-with-unit: calc(var(--y) * var(--UNIT));
+
+  --tan: calc(
+    -1 * var(--r) * var(--ROTATION-PER-LENGTH-UNIT) * cos(var(--alpha-reference-angle))
+  );
+  --beta-tangent-angle: atan(var(--tan));
+
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: calc(var(--CONTAINER-WIDTH) * var(--UNIT));
+  animation: progress 6s linear infinite;
+  z-index: -100;
+}
+
+.shape {
+  --shape-width: 50px;
+  --shape-height: 10px;
+  position: absolute;
+  z-index: 1;
+  top: calc(-0.5 * var(--shape-height));
+  left: calc(-0.5 * var(--shape-width));
+  width: var(--shape-width);
+  height: var(--shape-height);
+  translate: var(--x-with-unit) var(--y-with-unit);
+  rotate: var(--beta-tangent-angle);
+  z-index: -100;
+}
+
+.shape-container-diagonal {
+  position: fixed;
+  top: 10vh; 
+  left: 5vw;
+  z-index: -1; 
+
+  
+  --DIAGONAL-PATH-LENGTH-X: 80vw; 
+  --DIAGONAL-PATH-LENGTH-Y: 60vh; 
+
+  --x-with-unit: calc(var(--progress) * var(--DIAGONAL-PATH-LENGTH-X));
+  --y-with-unit: calc(var(--progress) * var(--DIAGONAL-PATH-LENGTH-Y));
+
+  
+  --slope-numerator-diag: 60;
+  --slope-denominator-diag: 80;
+  --actual-slope-diag: calc(
+    var(--slope-numerator-diag) / var(--slope-denominator-diag)
+  );
+  --beta-tangent-angle: atan(var(--actual-slope-diag));
+
+  /* Animation properties */
+  animation-name: progress; 
+  animation-duration: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: 1s; 
+}
+/* ----- RESPONSIVE ----- */
+
+@media (max-width: 768px) {
+  .form-container {
+    padding: 20px;
+  }
+
+  .diet-options {
+    flex-direction: column;
+  }
+
+  .diet-option label {
+    text-align: center;
+  }
+}
